@@ -80,7 +80,8 @@ tryCatch({
           geom_line() +
           facet_wrap(~ year, ncol = 1) +
           labs(title = paste0(col_name,"(email: ",sheet1$email[1], ")")) +
-          geom_point(data = subset(df, df[[paste0(col_name, "_status")]] == "outlier"), color = "red", size = 2)
+          geom_point(data = subset(df, df[[paste0(col_name, "_status")]] == "outlier"), color = "red", size = 2) +
+          scale_x_datetime(date_labels = "%b")
         
         ggsave(paste0(graph_dir,col_name, ".png"), plot = p, width = 15, height = 8)
       }
